@@ -104,3 +104,81 @@ Command: `nmap -sn <my-subnet>`
 
 
 The scan showed me which devices were live in my own network, along with their IP and MAC addresses.
+
+## 5. Risk Analysis / Impact
+
+I did only information gathering. I did not do any exploitation or vulnerability testing. 
+
+### 5.1 Footprinting Risks - networkwalks.com
+
+| # | Tool | What I Found | Why It Is Risky | Risk |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | whatweb | Website is using WordPress and WP Download Manager, versions are visible | Attacker can search for known problems in that specific version | Medium |
+| 2 | nslookup | Domain IP address is visible | Attacker can find the hosting location and target that server | Low |
+| 3 | curl -I | HTTP headers and /wp-json/ details are visible | Attacker gets extra technical information for fingerprinting | Low |
+| 4 | wafw00f | Website is protected by ModSecurity WAF | Attacker now knows which WAF to try to bypass | Low |
+| 5 | dnsrecon | DNS records like NS, MX, TXT, SPF are visible | Attacker can make a complete map of the domain infrastructure | Medium |
+
+### 5.2 Scanning Risk - My Own Network
+
+| # | Tool | What I Found | Why It Is Risky | Risk |
+| :--- | :--- | :--- | :--- | :--- |
+| 6 | Zenmap / Nmap | Many live hosts are visible in my own network | If any unknown device is connected, it can be used to attack my network | Medium |
+
+---
+
+## 6. Recommendations
+
+### 6.1 For Footprinting - Website Security
+
+1. **Hide version details** - WordPress and plugin versions should not be shown publicly.
+2. **Keep software updated** - WordPress, themes and plugins should be updated regularly.
+3. **Clean HTTP headers** - Only required information should be shown in headers.
+4. **Review DNS records** - Only required DNS records should be kept public.
+5. **Keep WAF ON and updated** - ModSecurity should stay enabled, updated and monitored.
+
+### 6.2 For Scanning - Network Security
+
+6. **Scan your network regularly** - Use Nmap to check which devices are connected.
+7. **Investigate unknown devices** - If any device you don't know appears, check it and block it if needed.
+8. **Maintain a device list** - Keep a written record of your own devices with their IP and MAC addresses, so you can easily find an unknown one.
+
+   ## 7. Conclusion
+
+In Week 2, I learned how the first step of ethical hacking works - information gathering.
+
+In the footprinting task, I collected public information about networkwalks.com using 6 different tools in Kali Linux. I learned that even small public details like IP address, DNS records, HTTP headers, WAF and CMS version can help an attacker understand the target.
+
+In the scanning task, I scanned my own home network using Zenmap / Nmap. I learned how to find live devices in my own network and how to see their IP and MAC addresses.
+
+Both tasks helped me understand that before any attack, an attacker first collects information. As a defender, if we know what information is visible about us, we can secure it better.
+
+I completed both tasks with permission, only for learning purposes, and I did not do any exploitation.
+
+---
+
+## 8. Evidence / Screenshots
+
+All screenshots below are my own work, taken during the tasks. They are attached as proof of each step.
+
+
+
+
+![Whois](1-screenshot-whois.png)
+
+
+![whatweb](2-screenshot-whatweb.png)
+
+
+![nslookup](3-screenshot-nslookup.png)
+
+
+![curl](4-screenshot-curl-I.png)
+
+
+![wafw00f](5-screenshot-wafw00f.png)
+
+
+![dnsrecon](6-screenshot-dnsrecon.png)
+
+
