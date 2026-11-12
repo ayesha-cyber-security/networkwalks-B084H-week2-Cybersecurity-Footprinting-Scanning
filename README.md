@@ -182,3 +182,11 @@ All screenshots below are my own work, taken during the tasks. They are attached
 ![dnsrecon](6-screenshot-dnsrecon.png)
 
 
+My linkedin post link for week 2 project is:
+
+https://www.linkedin.com/posts/aisha-khan-082446376_cybersecurity-ethicalhacking-footprinting-share-7526608529214894080-Gqpt?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFz4POIBuzLy4HLMi1c6CZ4TJx4PEOMETqc&utm_campaign=whatsapp
+
+
+
+
+
